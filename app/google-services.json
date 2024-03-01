@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "767943966114",
+    "project_id": "actividad-individual",
+    "storage_bucket": "actividad-individual.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767943966114:android:fe5cd39924fa71eb0cc6fb",
+        "android_client_info": {
+          "package_name": "com.nebrija.actividadindividual"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBo4oDdMhllDxmS0inlvYlp-lWTA6ZukAE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
