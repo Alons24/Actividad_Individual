@@ -141,7 +141,7 @@ fun PrincipianteMENU(navController: NavHostController) {
                         Text("PRINCIPIANTE")
                     },
                     navigationIcon = {
-                        IconButton(onClick = { navController.navigate("MenuBotones") }) {
+                        IconButton(onClick = { navController.navigate("MenuPrimero") }) {
                             Icon(
                                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                                 contentDescription = "Localized description"
@@ -203,9 +203,103 @@ fun PrincipianteMENU(navController: NavHostController) {
                         .padding(innerPadding),
                     verticalArrangement = Arrangement.spacedBy(16.dp),
                 ) {
+
+
+                    val ejercicios = remember { mutableStateOf(emptyList<Map<String, Any>>()) }
+
+                    // Usamos LaunchedEffect para cargar los datos cuando la pantalla se carga por primera vez
+
+                    LaunchedEffect(Unit) {
+                        val db = FirebaseFirestore.getInstance()
+                        val ref = db.collection("/INTENSIDADBAJA")
+
+                        try {
+                            val querySnapshot = ref.get().await()
+
+                            for (document in querySnapshot) {
+                                Log.d("samuLino", "Datos del documento: ${document.data.toString()}")
+                            }
+
+                            ejercicios.value = querySnapshot.documents.map { it.data ?: emptyMap() }
+                            ejerciciosEncontrados = ejercicios.value.isNotEmpty()
+                        } catch (exception: Exception) {
+                            // Ha ocurrido un error al realizar la consulta
+                            Log.e("samuLino", "Error al realizar la consulta: ${exception.message}")
+                            datos = "no se ha podido conectar"
+                        }
+                    }
+
+                    if (ejerciciosEncontrados) {
+                        ejercicios.value.forEachIndexed { index, ejercicio ->
+                            Card(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(16.dp)
+                                    .height(570.dp),
+                            ) {
+                                Column(
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .padding(16.dp),
+                                    verticalArrangement = Arrangement.spacedBy(4.dp)
+                                ) {
+                                    Text(
+                                        text = "Ejercicios: ",
+                                        style = TextStyle(
+                                            fontSize = 30.sp,
+                                            fontWeight = FontWeight.Bold
+                                        )
+                                    )
+
+                                    Text(
+                                        text = "Dia: ${ejercicio["Dia"]}",
+                                        style = TextStyle(fontSize = 25.sp)
+                                    )
+
+                                    Text(
+                                        text = "Tipo: ${ejercicio["Tipo"]}",
+                                        style = TextStyle(fontSize = 25.sp)
+                                    )
+
+
+                                    Text(
+                                        text = "1º Ejercicio: ${ejercicio["1ºEjercicio"]}",
+                                        style = TextStyle(fontSize = 25.sp)
+                                    )
+
+                                    Text(
+                                        text = "2º Ejercicio: ${ejercicio["2ºEjercicio"]}",
+                                        style = TextStyle(fontSize = 25.sp)
+                                    )
+
+                                    Text(
+                                        text = "3º Ejercicio: ${ejercicio["3ºEjercicio"]}",
+                                        style = TextStyle(fontSize = 25.sp)
+                                    )
+
+
+                                    Text(
+                                        text = "4º Ejercicio: ${ejercicio["4ºEjercicio"]}",
+                                        style = TextStyle(fontSize = 25.sp)
+                                    )
+
+
+
+                                }
+                            }
+                        }
+                    } else {
+                        Text(
+                            text = datos,
+                            style = TextStyle(fontSize = 16.sp, color = Color.Red)
+                        )
+                    }
+
+                    /*
                     var ejercicios1 :ArrayList<Ejercicios>= ArrayList()
 
                     // Usamos LaunchedEffect para cargar los datos cuando la pantalla se carga por primera vez
+
                     LaunchedEffect(Unit) {
                         val db = FirebaseFirestore.getInstance()
                         val ref = db.collection("/IntensidadBaja")
@@ -245,7 +339,7 @@ fun PrincipianteMENU(navController: NavHostController) {
 
                         }
                     }
-
+*/
                 }
             }
         }
