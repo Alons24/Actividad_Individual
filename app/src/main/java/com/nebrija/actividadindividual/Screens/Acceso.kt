@@ -39,7 +39,7 @@ fun Acceso(navController: NavHostController){
     ) {
 
         Image(
-            painter = painterResource(R.drawable.depormania),
+            painter = painterResource(R.drawable.viajes_sin_frontetas___copia),
             contentDescription = "TÍTULO DE LA EMPRESA",
             modifier = Modifier
                 .padding(22.dp)

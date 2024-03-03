@@ -91,7 +91,7 @@ fun MenuPrimero(navController: NavHostController) {
 
                     //BOTÓN PARA IR A GUARDAR CLIENTE
                     Button(
-                        onClick = { navController.navigate(AppScreens.PrincipianteMENU.ruta) },
+                        onClick = { navController.navigate(AppScreens.NivelMedioMENU.ruta) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .width(300.dp)
@@ -107,7 +107,7 @@ fun MenuPrimero(navController: NavHostController) {
 
                     //BOTÓN PARA IR A MODIFICAR CLIENTE
                     Button(
-                        onClick = { navController.navigate(AppScreens.PrincipianteMENU.ruta) },
+                        onClick = { navController.navigate(AppScreens.ExpertoMENU.ruta) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .width(300.dp)
@@ -121,21 +121,7 @@ fun MenuPrimero(navController: NavHostController) {
                         )
                     }
 
-                    //BOTÓN PARA IR A CLIENTE INFORME
-                    Button(
-                        onClick = { navController.navigate(AppScreens.PrincipianteMENU.ruta) },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .width(300.dp)
-                            .height(100.dp),
-                        shape = RectangleShape,
-                        colors = ButtonDefaults.buttonColors(Color(4, 104, 249, 255))
-                    ) {
-                        Text(
-                            text = "PRINCIPIANTE",
-                            fontSize = 25.sp,
-                        )
-                    }
+
 
 
                     //FIN DE LOS BOTONES DEL MENÚ LATERAL
