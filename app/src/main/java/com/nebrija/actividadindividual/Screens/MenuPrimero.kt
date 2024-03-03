@@ -100,7 +100,7 @@ fun MenuPrimero(navController: NavHostController) {
                         colors = ButtonDefaults.buttonColors(Color(4, 104, 249, 255))
                     ) {
                         Text(
-                            text = "PRINCIPIANTE",
+                            text = "NIVEL MEDIO",
                             fontSize = 25.sp,
                         )
                     }
@@ -116,7 +116,7 @@ fun MenuPrimero(navController: NavHostController) {
                         colors = ButtonDefaults.buttonColors(Color(4, 104, 249, 255))
                     ) {
                         Text(
-                            text = "PRINCIPIANTE",
+                            text = "EXPERTO",
                             fontSize = 25.sp,
                         )
                     }
