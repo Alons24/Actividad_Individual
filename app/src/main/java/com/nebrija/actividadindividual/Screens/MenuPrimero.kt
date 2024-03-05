@@ -122,8 +122,6 @@ fun MenuPrimero(navController: NavHostController) {
                     }
 
 
-
-
                     //FIN DE LOS BOTONES DEL MENÚ LATERAL
                 }
             }
